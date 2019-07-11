@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>冒泡排序</title>
+</head>
+
+<body>
+    <script>
+        // var arr = [25, 45, 78, 32, 15, 45, 31, 84, 189, 64, 21, 214, 35];
+        // // ----------------------------------------冒泡排序
+        // // 定义执行的趟数 : arr.length -1  
+        // var n = 0;
+        // for (var i = 1; i <= arr.length - 1; i++) {
+        //     // 每一趟执行的次数 与趟数相加为arr.length
+        //     for (var j = 0; j < arr.length - i; j++) {
+        //         if (arr[j] > arr[j + 1]) {
+        //             n = arr[j + 1];
+        //             arr[j + 1] = arr[j];
+        //             arr[j] = n;
+        //         }
+        //     }
+        // }
+        // console.log(arr);
+
+
+
+
+
+        var arr = [20, 14, 11, 26, 42, 51, 33, 41, 25, 13, 15, 28];
+        var n = 0;
+        // 冒泡排序需要执行 arr.length-1趟，
+        for (var i = 0; i <= arr.length - 1; i++) {
+            // 每一趟执行的次数与趟数相加的和为数组的长度   arr.length!!!-------------观察规律
+            for (var j = 0; j < arr.length - i; j++) {
+                // 进行比较，交换
+                if (arr[j] > arr[j + 1]) {
+                    n = arr[j];
+                    arr[j] = arr[j + 1];
+                    arr[j + 1] = n;
+                }
+            }
+            console.log(arr); //显示每一趟变换的步骤；
+        }
+    </script>
+</body>
+
+</html>

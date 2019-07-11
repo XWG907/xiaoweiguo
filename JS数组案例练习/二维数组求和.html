@@ -46,9 +46,36 @@
             }
         }
         // 输出最大值;
+        console.log("最大值为:" + max);
+
+
 
         // ------------------------------------------------------------再敲一遍
-        console.log("最大值为:" + max);
+
+
+        var b = [
+            [15, 45, 23],
+            [18, 26, 47, 58],
+            [46, 52, 14]
+        ]
+        // 求总和
+        sum = 0;
+        // 求最大值
+        max = b[0][0];
+        for (var i = 0; i <= b.length - 1; i++) {
+            // 此时遍历出来的是 b[i]
+            // console.log(b[i]);
+            for (var j = 0; j < b[i].length; j++) {
+                // 此时获取的是   b[i][j]
+                // console.log(b[i][j]);
+                sum += b[i][j];
+                if (max < b[i][j]) {
+                    max = b[i][j];
+                }
+            }
+        }
+        console.log("b数组里总和为：" + sum);
+        console.log("b数组里最大值为：" + max);
     </script>
 </body>
 

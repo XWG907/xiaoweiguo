@@ -1,0 +1,215 @@
+/* 分析：
+    从宽度为992之后页面的布局 分为 2/7/3.
+    先写 最先发生改变的 md：992 -1200；后面都不发生改变
+    实现md页面；
+    之后调试md前面的页面，用媒体查询并且加权重来实现样式改变！
+    */
+// body初始化
+body {
+    padding: 0;
+    margin: 0;
+}
+
+// ----------------------版心
+.container {
+    padding: 0; //版心的内边距也要初始化
+
+    // -----------------------------------左侧的阿里logo和导航
+    // row清楚内边距，使内容与宽度完全填充！
+    .left {
+        padding-left: 0px;
+
+        .logo {
+            background-color: blue;
+
+            img {
+                max-width: 100%;
+            }
+        }
+
+        .nav {
+            border-bottom: 3px solid #ccc;
+
+            a {
+                span {
+                    padding-right: 8px;
+                }
+
+                display: block;
+                height: 44px;
+                line-height: 44px;
+                text-align: center;
+                background-color: #ccc;
+                color: #222;
+                text-decoration: none;
+
+                &:hover {
+                    background-color: #fff;
+                }
+            }
+        }
+    }
+
+    @media screen and(max-width :992px) {
+
+        //媒体查询不能写错
+        .left {
+
+
+            .logo {
+                width: 100%;
+                text-align: center;
+
+                img {
+                    // width: 100%;
+                    max-width: 100%;
+                    //父元素比自己大时，取自身元素的宽度，比自己小时去父元素的宽度；
+                }
+            }
+
+            .nav {
+                a {
+                    span {
+                        padding-right: 8px;
+                    }
+
+                    display: block;
+                    float: left;
+                    width: 20%;
+                    height: 44px;
+                    line-height: 44px;
+                    text-align: center;
+                    background-color: #ccc;
+                    color: #222;
+                    text-decoration: none;
+
+                    &:hover {
+                        background-color: #fff;
+                    }
+                }
+            }
+        }
+    }
+
+    //页面为超小屏的时候的样式改变
+    @media screen and(max-width :768px) {
+        .container {
+            min-width: 320px;
+        }
+
+        .left {
+            .logo {
+                .info {
+                    width: 100%;
+                    text-align: center;
+                    color: #fff;
+                    font-size: 18px;
+                    line-height: 44px;
+                }
+            }
+        }
+    }
+
+    // -----------------------------------center部分
+
+    .center {
+
+        // 图片部分
+        .mainImg {
+            border-bottom: 1px solid #ccc;
+
+            div {
+                position: relative;
+                float: left;
+
+                p {
+                    position: absolute;
+                    // content: "奇了 成都一小区护卫长得像马云 市民纷纷求合影";
+                    // display: block;
+                    width: 100%;
+                    height: 44px;
+                    line-height: 44px;
+                    color: #fff;
+                    margin: 0;
+                    padding: 0;
+                    background-color: rgba(0, 0, 0, .8);
+                    bottom: 0;
+                    right: 0;
+                }
+
+                img {
+                    width: 100%;
+                    height: 100%;
+                }
+            }
+
+            .navImg1 {
+                height: 266px;
+                width: 50%;
+                border-bottom: 10px solid #fff;
+
+                p {
+                    padding-left: 20px;
+                    font-size: 24px;
+                }
+            }
+
+            .navImg2 {
+                height: 133px;
+                width: 25%;
+                border-bottom: 10px solid #fff;
+                border-left: 10px solid #fff;
+
+                p {
+                    // padding-left: 20px;
+                    font-size: 12px;
+                    line-height: 16px;
+                }
+            }
+        }
+
+        // 文章部分
+        .article {
+            padding-bottom: 10px;
+            border-bottom: 1px solid #ccc;
+            overflow: hidden;
+
+            p {
+                margin: 0;
+            }
+
+            .mayun {
+                padding: 0;
+            }
+
+            img {
+                // padding-left: -15px;
+                // padding-right: -15px;
+                // margin-top: 10px;
+                width: 100%;
+                margin-top: 10px;
+                // width: 100%;
+            }
+        }
+    }
+
+
+    // 右边新闻部分
+    .news {
+        a {
+            display: block;
+
+            img {
+                width: 100%;
+            }
+        }
+
+        .box {
+            padding: 0 10px;
+            margin-top: 10px;
+            border: 1px solid #ccc;
+        }
+    }
+
+
+}
